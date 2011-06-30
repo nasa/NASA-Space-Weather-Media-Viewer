@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:ns1="*"
+		addedToStage="view1_addedToStageHandler(event)"
+		backgroundColor="#000000" 
+		creationComplete="view1_creationCompleteHandler(event)"
+		destructionPolicy="never" 
+		overlayControls="true" 
+		resize="view1_resizeHandler(event)"
+		tabBarVisible="false" 
+		viewActivate="view1_viewActivateHandler(event)"
+		actionBarVisible="{actionBarVis}" 
+		viewDeactivate="view1_viewDeactivateHandler(event)"
+		>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.greensock.TweenNano;
+			import flash.display.Sprite;
+			import flash.events.Event;
+			import id.core.GWTouchSprite;
+			import id.core.GestureGlobals;
+			import id.core.ImageSprite;
+			import id.events.GestureEvent;
+			import id.utils.ViewArray;
+			import id.utils.XMLObjects;
+			import main.Touch;
+			import mx.events.FlexEvent;
+			import mx.events.ResizeEvent;
+			import spark.events.ViewNavigatorEvent;
+			import id.utils.StringTrim;
+			
+			private var sp:ImageSprite;
+			private var isMedia:Boolean;
+			
+			[Bindable]
+			[Embed(source="assets/circleArrow.png")]
+			public var refreshIcon:Class;
+			
+			[Bindable]
+			[Embed(source="assets/fullScreen.png")]
+			public var fullScreenIcon:Class;
+			
+			[Bindable]
+			private var actionBarVis:Boolean = true;
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{				
+				rect.height=GestureGlobals.btnBarHeight;
+				
+				//StringTrim.amountToStay = 15;
+				//StringTrim.dotString="..."
+				//title=StringTrim.stringTrim(data.title);
+				
+				title=data.title;
+				
+				backButton.text.text=XMLObjects.category;
+				backButton.text.width=backButton.text.textWidth+5;
+				backButton.button.width=backButton.text.width+20;
+			}
+			
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				if(sp.isVideo)
+				{
+					sp.cleanUp();
+				}
+				navigator.popView();
+			}
+						
+			protected function share_clickHandler(event:MouseEvent):void
+			{
+				share.scaleX=.9;
+				share.scaleY=.9;
+				TweenNano.to(share, .25, {scaleX:1, scaleY:1});
+				
+				if(shareComp.visible==true)
+				{
+					shareComp.visible=false;
+				}
+				else
+				{
+					shareComp.visible=true;
+				}
+			}
+			
+			protected function info_clickHandler(event:MouseEvent):void
+			{
+				info.scaleX=.9;
+				info.scaleY=.9;
+				TweenNano.to(info, .25, {scaleX:1, scaleY:1,onComplete:onFinishICLick});
+			}
+			
+			private function onFinishICLick():void
+			{
+				if(sp.isVideo)
+				{
+					sp.pause();
+				}
+				navigator.pushView(InfoView, data);
+			}
+			
+			protected function button2_clickHandler(event:MouseEvent):void
+			{
+			}
+			
+			private var maxScale:Number=3;
+			private var minScale:Number=.5;
+			private function scaleHandler(event:id.events.GestureEvent):void
+			{
+				event.currentTarget.scaleX=event.scaleX;
+				event.currentTarget.scaleY=event.scaleY;
+				
+				event.currentTarget.width=orgWidth*event.scaleX;
+				event.currentTarget.height=orgHeight*event.scaleY;
+								
+				event.currentTarget.scaleY=event.currentTarget.scaleY>Number(maxScale)?Number(maxScale):event.currentTarget.scaleY<Number(minScale)?Number(minScale):event.currentTarget.scaleY;
+				event.currentTarget.scaleX=event.currentTarget.scaleX>Number(maxScale)?Number(maxScale):event.currentTarget.scaleX<Number(minScale)?Number(minScale):event.currentTarget.scaleX;
+			}
+			
+			protected function view1_viewActivateHandler(event:ViewNavigatorEvent):void
+			{
+				if(sp!=null)
+				{
+					sp.visible=true;
+				}
+			}
+			
+			protected function view1_addedToStageHandler(event:Event):void
+			{				
+				//var touch:Touch = new Touch();
+				//this.addElement(touch);
+				
+				if(!isMedia)
+				{
+					sp = new ImageSprite();
+					if(data.type=="video")
+					{
+						sp.isVideo=true;
+					}
+					
+					sp.url=data.source;
+					this.addElement(sp);
+					
+					setElementIndex(sp, 0);
+					
+					if(sp.isVideo)
+					{
+						//refreshBtn.setStyle("icon", fullScreenIcon);
+						//title="Video";
+						refreshBtn.visible=false;
+					}
+					else
+					{
+						refreshBtn.setStyle("icon", refreshIcon);
+						sp.addEventListener(id.events.GestureEvent.SCALE, scaleHandler);
+						sp.addEventListener(GWTouchSprite.OUT_OF_BOUNDS, objectOutOfBounds);
+					}
+					
+				//	sp.addEventListener(GWTouchSprite.TAP, tapDown);
+					sp.addEventListener(id.events.GestureEvent.TAP, tapDown);
+					sp.addEventListener(id.events.GestureEvent.DOUBLE_TAP, doubleTapHandler);
+					sp.addEventListener(ImageSprite.LOADED, mediaLoaded);
+					
+					stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+					
+					isMedia=true;
+				}
+			}
+			
+			private var tweening:Boolean;
+			private function objectOutOfBounds(event:Event):void
+			{
+				if(tweening) return;
+				
+				tweening=true;
+				
+				TweenNano.to(event.target, .5, {x:(stage.stageWidth-event.target.width)/2, y:(stage.stageHeight-event.target.height)/2, onComplete:onFinishTween});
+			}
+			
+			private function onFinishTween():void 
+			{
+				tweening=false;
+			}
+			
+			private function tapDown(event:id.events.GestureEvent):void
+			{
+				actionBarVis = !actionBarVis;
+				
+				footer.visible=actionBarVis;
+				
+				sp.setControlVisible(actionBarVis);
+			}
+			
+			private function doubleTapHandler(event:id.events.GestureEvent):void
+			{
+				if(!sp.isVideo)
+				{
+					TweenNano.to(sp,.5, {scaleX:2, scaleY:2, x:(stage.stageWidth-(orgWidth*2))/2, y:(stage.stageHeight-(orgHeight*2))/2});
+				}
+			}
+			
+			private var orgWidth:Number=0;
+			private var orgHeight:Number=0;
+			protected function mediaLoaded(event:Event):void
+			{
+				preloader.visible=false;
+				
+				orgWidth=event.target.width;
+				orgHeight=event.target.height;
+			}
+			
+			protected function view1_resizeHandler(event:ResizeEvent):void
+			{				
+				sp.x=stage.stageWidth/2;
+				sp.y=stage.stageHeight/2;
+				
+				sp.updateUI(null);
+				
+				shareBack.bottom = GestureGlobals.btnBarHeight;
+			}
+			
+			protected function button3_clickHandler(event:MouseEvent):void
+			{
+				if(!sp.isVideo)
+				{
+					preloader.visible=true;
+					sp.refresh();
+				}
+				else
+				{
+					sp.fullScreen();
+				}
+			}
+			
+			protected function cancel_clickHandler(event:MouseEvent):void
+			{
+				shareComp.visible=false;
+			}
+			
+			protected function twitbtn_clickHandler(event:MouseEvent):void
+			{				
+				var path:URLRequest = new URLRequest("http://twitter.com/share");
+				path.method = URLRequestMethod.GET;
+				var tweetVars:URLVariables = new URLVariables();
+				tweetVars.url = " ";
+				tweetVars.text = "I just saw the latest image of the sun with NASA's Space Weather Viewer for Android. Download it at: http://tinyurl.com/droidsun";
+				path.data = tweetVars;
+				navigateToURL(path, '_blank');
+				
+				shareComp.visible=false;
+			}
+			
+			protected function facebtn_clickHandler(event:MouseEvent):void
+			{ 
+				var varsShare:URLVariables = new URLVariables();
+				var urlFacebookShare:URLRequest=new URLRequest("http://www.facebook.com/share.php");
+			
+			    varsShare.u=data.source;
+				varsShare.t='title page';
+				varsShare.d='SUPER DOOPER';
+				varsShare.m='rastafari';
+								
+				urlFacebookShare.data=varsShare;
+				urlFacebookShare.method=URLRequestMethod.GET;
+				
+				navigateToURL(urlFacebookShare, '_blank');
+				
+				shareComp.visible=false;
+			}
+			
+			protected function view1_viewDeactivateHandler(event:ViewNavigatorEvent):void
+			{
+				sp.visible=false;
+			}
+			
+			private function onKeyDown(event:KeyboardEvent):void 
+			{
+				if(event.keyCode == Keyboard.MENU) 
+				{
+					event.preventDefault();
+					
+					if(shareComp.visible==true)
+					{
+						shareComp.visible=false;
+					}
+					else
+					{
+						shareComp.visible=true;
+					}
+				}
+				
+				if(event.keyCode == Keyboard.BACK || event.keyCode == Keyboard.HOME) 
+				{
+					sp.cleanUp();
+					
+					trace("back has been hit");
+				}
+				
+				trace("event.keyCode:",event.keyCode);
+				
+			}
+			
+		]]>
+		
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:navigationContent>
+		<ns1:backBtn id="backButton" left="0" top="0" click="button1_clickHandler(event)"/>
+	</s:navigationContent>
+	
+	<s:actionContent>
+		<s:Button id="refreshBtn" click="button3_clickHandler(event)"/>
+	</s:actionContent>
+	
+	<s:Group id="footer" bottom="0" width="100%">
+		<s:Rect id="rect" bottom="0" width="100%" height="85" horizontalCenter="0">
+			<s:fill>
+				<s:SolidColor color="0x000000" alpha=".5"/>
+			</s:fill>
+		</s:Rect>
+		
+		<s:Image source="@Embed('assets/i.png')" id="info" right="90" bottom="10" click="info_clickHandler(event)"/>
+		<ns1:shareBtn id="share" left="90" bottom="18" click="share_clickHandler(event)"/>
+		
+	</s:Group>
+	
+	<s:Group id="shareComp" bottom="0" width="100%" visible="false">
+		<s:Rect id="shareBack" bottom="0" width="100%" height="300" horizontalCenter="0">
+			<s:fill>
+				<s:SolidColor color="0x333333" alpha=".9"/>
+			</s:fill>
+		</s:Rect>
+		<s:Button id="canbtn" bottom="100" width="240" height="48" label="cancel"
+				  horizontalCenter="0" click="cancel_clickHandler(event)"/>
+		<s:Button id="twitbtn" bottom="300" width="240" height="48" label="Post to Twitter"
+				  horizontalCenter="0" click="twitbtn_clickHandler(event)"/>
+		<s:Button id="facebtn" bottom="200" width="240" height="48" label="Post to Facebook"
+				  horizontalCenter="0" click="facebtn_clickHandler(event)"/>
+	</s:Group>
+	<s:BusyIndicator id="preloader" width="66" height="66" horizontalCenter="0" symbolColor="#FFFFFF"
+					 verticalCenter="0"/>
+</s:View>

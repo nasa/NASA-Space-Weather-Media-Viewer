@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+							xmlns:s="library://ns.adobe.com/flex/spark"
+							creationComplete="viewnavigatorapplication1_creationCompleteHandler(event)"
+							firstView="views.HomeView"
+							splashScreenImage="@Embed(source='assets/background.png')" 
+							splashScreenScaleMode="zoom"
+							>
+	
+	<fx:Style source="NasaSpaceViewer.css"/>
+	<fx:Script>
+		
+		<![CDATA[
+			
+			import mx.events.FlexEvent;
+			import flash.events.Event;
+			import id.core.GestureWorks;
+			import id.core.Splash;
+						
+			protected function viewnavigatorapplication1_creationCompleteHandler(event:FlexEvent):void
+			{								
+				if(Capabilities.cpuArchitecture=="ARM")
+				{
+					NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, handleActivate, false, 0, true);
+					NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, handleDeactivate, false, 0, true);
+				}
+				
+				addEventListener( Event.ADDED_TO_STAGE , addedToStageHandler );
+			}
+			
+			private function addedToStageHandler( event:Event ) : void
+			{
+				GestureWorks.initialize(stage);
+			}
+			
+			private function handleActivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+			}
+			
+			private function handleDeactivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.exit();
+			}			
+		]]>
+		
+	</fx:Script>
+</s:ViewNavigatorApplication>

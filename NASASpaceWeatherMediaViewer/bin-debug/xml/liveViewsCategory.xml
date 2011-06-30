@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<category>				
+		<name>The Sun</name>
+		<thumbnail>assets/images/thumbs/01_aia193_thumb.png</thumbnail>
+	</category>		
+	
+	<category>
+		<name>The Solar Wind</name>
+		<thumbnail>assets/images/thumbs/ace_mag_thumb.png</thumbnail>
+	</category>			
+	
+	<category>				
+		<name>Auroras</name>
+		<thumbnail>assets/images/thumbs/09_polar_thumb.png</thumbnail>
+	</category>	
+</xml>

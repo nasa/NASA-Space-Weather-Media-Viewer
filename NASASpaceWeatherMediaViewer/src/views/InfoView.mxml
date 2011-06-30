@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:ns1="*"
+		creationComplete="view1_creationCompleteHandler(event)" 
+		resize="view1_resizeHandler(event)"
+		addedToStage="view1_addedToStageHandler(event)"
+		>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.greensock.TweenNano;
+			
+			import flashx.textLayout.conversion.TextConverter;
+			
+			import id.core.GWTouchSprite;
+			import id.core.GestureGlobals;
+			import id.utils.XMLObjects;
+			
+			import mx.events.FlexEvent;
+			import mx.events.ResizeEvent;
+			private var fontSize:Number=24;
+			private var savedString:String="";
+			private var isMoving:Boolean;
+			
+			private var maxFontSize:int=48;
+			private var minFontSize:int=16;
+			
+			[Bindable]
+			private var actionBarVis:Boolean = true;
+			
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				navigator.popView();
+			}
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{				
+				title=data.title;
+				savedString=data.description;
+				titleLabel.text=data.headline;
+				titleLabel.dispatchEvent(new Event(Event.CHANGE));
+				richTxt.textFlow=TextConverter.importToFlow(data.description, TextConverter.TEXT_FIELD_HTML_FORMAT);
+				rect.height=GestureGlobals.btnBarHeight;
+				textScroller.bottom=GestureGlobals.btnBarHeight;
+				
+				backButton.text.text="back";
+				backButton.text.width=backButton.text.textWidth+5;
+				backButton.button.width=backButton.text.width+20;
+			}
+			
+			protected function button2_clickHandler(event:MouseEvent):void
+			{
+			}
+			
+			protected function refreshText():void
+			{
+				var array:Array = savedString.split("><img");
+				titleLabel.setStyle("fontSize", fontSize+4);
+				var newString:String="<p><font size=" + fontSize.toString() + "><img " + array[1].toString();
+				richTxt.textFlow=TextConverter.importToFlow(newString, TextConverter.TEXT_FIELD_HTML_FORMAT);
+			}
+			
+			protected function bigT_clickHandler(event:MouseEvent):void
+			{
+				bigTxt.scaleX=.9;
+				bigTxt.scaleY=.9;
+				TweenNano.to(bigTxt, .25, {scaleX:1, scaleY:1});
+				
+				if(fontSize>=maxFontSize)
+				{
+					return;
+				}
+				
+				fontSize+=2;
+				refreshText();
+			}
+			
+			protected function smallT_clickHandler(event:MouseEvent):void
+			{
+				smallTxt.scaleX=.9;
+				smallTxt.scaleY=.9;
+				TweenNano.to(smallTxt, .25, {scaleX:1, scaleY:1});
+				
+				if(fontSize<=minFontSize)
+				{
+					return;
+				}
+				
+				fontSize-=2;
+				refreshText();
+			}
+			
+			protected function share_clickHandler(event:MouseEvent):void
+			{
+				share.scaleX=.9;
+				share.scaleY=.9;
+				TweenNano.to(share, .25, {scaleX:1, scaleY:1});
+				
+				if(shareComp.visible==true)
+				{
+					shareComp.visible=false;
+				}
+				else
+				{
+					shareComp.visible=true;
+				}
+			}
+			
+			protected function cancel_clickHandler(event:MouseEvent):void
+			{
+				shareComp.visible=false;
+			}
+			
+			protected function view1_resizeHandler(event:ResizeEvent):void
+			{
+				shareBack.bottom = GestureGlobals.btnBarHeight;
+			}
+			
+			protected function titleLabel_updateCompleteHandler(event:FlexEvent):void
+			{
+				richTxt.top=titleLabel.height+titleLabel.top+15;
+			}
+			
+			protected function twitbtn_clickHandler(event:MouseEvent):void
+			{
+				var path:URLRequest = new URLRequest("http://twitter.com/share");
+				path.method = URLRequestMethod.GET;
+				var tweetVars:URLVariables = new URLVariables();
+				tweetVars.url = " ";
+				tweetVars.text = "I just saw the latest image of the sun with NASA's Space Weather Viewer for Android. Download it at: http://tinyurl.com/droidsun";
+				path.data = tweetVars;
+				navigateToURL(path, '_blank');
+				
+				shareComp.visible=false;
+			}
+			
+			protected function facebtn_clickHandler(event:MouseEvent):void
+			{
+				var varsShare:URLVariables = new URLVariables();
+				var urlFacebookShare:URLRequest=new URLRequest("http://www.facebook.com/sharer.php");
+				varsShare.u=data.source;
+				varsShare.t="I just saw the latest images of the sun using NASA's Space Weather Viewer for Android. You can download it at: http://tinyurl.com/droidsun"+data.source;
+				urlFacebookShare.data=varsShare;
+				urlFacebookShare.method=URLRequestMethod.GET;
+				navigateToURL(urlFacebookShare, '_blank');
+				
+				shareComp.visible=false;
+			}
+			
+			protected function view1_addedToStageHandler(event:Event):void
+			{
+				stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			}
+			
+			private function onKeyDown(event:KeyboardEvent):void 
+			{
+				if(event.keyCode == Keyboard.MENU) 
+				{
+					event.preventDefault();
+					
+					if(shareComp.visible==true)
+					{
+						shareComp.visible=false;
+					}
+					else
+					{
+						shareComp.visible=true;
+					}
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<fx:String id="htmlTextAsHTML"><![CDATA[<p>define the font family like Arial; Like Css, you can define several font face like Arial, Verdana;In this case, if Arial is not installed in user’s computer, flash player will try to use Verdana as alternative. If none defined fonts are installed, flash will use its default font. To ensure the desired font always be displayed, you can embed that font into swf file. However, it will increase the swf file size for sure.</p>]]></fx:String>
+	</fx:Declarations>
+	
+	<s:navigationContent>
+		<ns1:backBtn id="backButton" x="10" y="24" click="button1_clickHandler(event)"/>
+	</s:navigationContent>
+	
+	<s:Scroller id="textScroller" top="0" bottom="0" width="100%">
+		<s:Group fontSize="24">
+			<s:Label id="titleLabel" left="12" right="12" top="18" fontSize="28" fontWeight="bold" updateComplete="titleLabel_updateCompleteHandler(event)"/>
+			<s:RichText id="richTxt" left="12" right="12"/>
+		</s:Group>
+	</s:Scroller>
+	
+	<s:Group bottom="0" width="100%" horizontalCenter="0">
+		<s:Rect id="rect" bottom="0" width="100%" height="85" horizontalCenter="0">
+			<s:fill>
+				<s:SolidColor color="0x000000" alpha="1"/>
+			</s:fill>
+		</s:Rect>
+		
+		<ns1:bigT id="bigTxt" bottom="12" width="57.7" height="40.1" click="bigT_clickHandler(event)" horizontalCenter="50"/>
+		<ns1:smallT id="smallTxt" bottom="21" width="45.75" height="28.05" click="smallT_clickHandler(event)" horizontalCenter="-45"/>
+		<ns1:shareBtn id="share" left="60" bottom="18" click="share_clickHandler(event)"/>
+	</s:Group>
+	
+	<s:Group id="shareComp" bottom="0" width="100%" visible="false">
+		<s:Rect id="shareBack" bottom="0" width="100%" height="300" horizontalCenter="0">
+			<s:fill>
+				<s:SolidColor color="0x333333" alpha=".9"/>
+			</s:fill>
+		</s:Rect>
+		<s:Button id="canbtn" bottom="100" width="240" height="48" label="cancel" horizontalCenter="0" click="cancel_clickHandler(event)"/>
+		<s:Button id="twitbtn" bottom="300" width="240" height="48" label="Post to Twitter"
+				  horizontalCenter="0" click="twitbtn_clickHandler(event)"/>
+		<s:Button id="facebtn" bottom="200" width="240" height="48" label="Post to Facebook"
+				  horizontalCenter="0" click="facebtn_clickHandler(event)"/>
+	</s:Group>
+	
+</s:View>

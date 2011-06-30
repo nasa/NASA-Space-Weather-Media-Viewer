@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<category>				
+		<name>The Sun</name>
+		<thumbnail>assets/images/thumbs/sun_icon_0000_How-big-is-the.png</thumbnail>
+	</category>		
+	
+	<category>
+		<name>Solar Wind</name>
+		<thumbnail>assets/images/thumbs/what_is_the_solar_wind.png</thumbnail>
+	</category>			
+	
+	<category>				
+		<name>Magnetosphere</name>
+		<thumbnail>assets/images/thumbs/magnetosphere_icon_0005_The.png</thumbnail>
+	</category>
+	
+	<category>				
+		<name>Aurora</name>
+		<thumbnail>assets/images/thumbs/aurora_icon_0000_What-is-an.png</thumbnail>
+	</category>	
+	
+	<category>				
+		<name>Heliosphere</name>
+		<thumbnail>assets/images/thumbs/aurora_icon_0000_The-edge-of.png</thumbnail>
+	</category>	
+	
+	<category>				
+		<name>Missions</name>
+		<thumbnail>assets/images/thumbs/ulysses.png</thumbnail>
+	</category>
+</xml>

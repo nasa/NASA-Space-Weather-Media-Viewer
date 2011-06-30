@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<trends>
+	<trend>
+		<name>SunView</name>
+		<thumbnail>assets/images/thumbs/01_aia193_thumb.png</thumbnail>
+	</trend>
+	<trend>
+		<name>The Solar Wind</name>
+		<thumbnail>assets/images/thumbs/ace_mag_thumb.png</thumbnail>
+	</trend>
+	<trend>
+		<name>Auroras</name>
+		<thumbnail>assets/images/thumbs/09_polar_thumb.png</thumbnail>
+	</trend>
+</trends>

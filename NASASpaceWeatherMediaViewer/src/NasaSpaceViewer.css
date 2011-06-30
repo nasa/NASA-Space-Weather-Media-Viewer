@@ -1,0 +1,23 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+
+
+global
+{
+	font-size: 24;
+	
+	vertical-align: bottom;
+	selection-color: #0099FF;
+	down-color: #0099FF;
+	
+}
+
+s|ActionBar #titleDisplay
+{
+	color: #FFFFFF;
+	
+	font-size: 30;
+	
+	white-space:normal;
+}
+	

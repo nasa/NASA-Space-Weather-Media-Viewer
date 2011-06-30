@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<category>				
+		<name>The Sun</name>
+		<thumbnail>assets/images/thumbs/06_solarfusion_thumb.png</thumbnail>
+	</category>		
+	
+	<category>
+		<name>Auroras</name>
+		<thumbnail>assets/images/thumbs/04_polarvisible_thumb.png</thumbnail>
+	</category>
+</xml>

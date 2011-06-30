@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:morecategory="services.morecategory.*"
+		creationComplete="view1_creationCompleteHandler(event)" title="Space Weather Mobile Media Viewer" viewDeactivate="view1_viewDeactivateHandler(event)" destructionPolicy="never" viewActivate="view1_viewActivateHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import id.core.GestureGlobals;
+			import id.core.GWTouchSprite;
+			
+			import mx.events.FlexEvent;
+			
+			import spark.events.IndexChangeEvent;
+			import spark.events.ViewNavigatorEvent;
+			import spark.transitions.CrossFadeViewTransition;
+			private var buttonBarArray:Array = [LiveViewsView, VisualizationsView, VideosView, MoreView];
+			private var index:int;
+			private var array:Array = [NasaMissionView,AboutView];
+			[Embed(source="assets/arrow.png")]
+			[Bindable]
+			public var arrow:Class; 
+			
+			private function buttonChange(event:IndexChangeEvent):void 
+			{ 				
+				if(index==buttonBar.selectedIndex)
+				{
+					return;
+				}
+				var cubeFlip:CrossFadeViewTransition = new CrossFadeViewTransition();
+				cubeFlip.duration = 500;
+				navigator.pushView(buttonBarArray[buttonBar.selectedIndex], data, null, cubeFlip);
+			}
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				index=buttonBar.selectedIndex;
+				
+				rect.height=GestureGlobals.btnBarHeight;
+				
+				getData();
+			}
+			
+			protected function list_changeHandler(event:IndexChangeEvent):void
+			{
+				navigator.pushView(array[list.selectedIndex],list.selectedItem);
+			}
+			
+			protected function getData():void
+			{
+				getDataResult.token = moreCategory.getData();
+			}
+			
+			protected function view1_viewDeactivateHandler(event:ViewNavigatorEvent):void
+			{
+				list.selectedIndex=-1;
+			}
+			
+			protected function view1_viewActivateHandler(event:ViewNavigatorEvent):void
+			{
+				buttonBar.selectedIndex=3;
+			}
+			
+		]]>
+		
+	</fx:Script>
+	<fx:Declarations>
+		<s:CallResponder id="getDataResult"/>
+		<morecategory:MoreCategory id="moreCategory"/>
+	</fx:Declarations>
+	
+	<s:navigationContent>
+		<s:Image source="@Embed(source='assets/nasaLogo.png')"/>
+	</s:navigationContent>
+	
+	<s:List id="list" width="100%" height="100%" change="list_changeHandler(event)">
+		<s:itemRenderer>
+			<fx:Component>
+				<s:IconItemRenderer labelField="name" height="90" width="100%" decorator="@Embed(source='assets/arrow.png')">
+				</s:IconItemRenderer>
+			</fx:Component>
+		</s:itemRenderer>
+		<s:AsyncListView list="{getDataResult.lastResult}"/>
+	</s:List>
+	
+	<s:Group bottom="0" width="100%">
+		<s:Rect id="rect" width="100%" height="85">
+			<s:fill>
+				<s:SolidColor color="0x000000" alpha="1"/>
+			</s:fill>
+		</s:Rect>
+	</s:Group>
+	
+	<s:ButtonBar id="buttonBar" bottom="10" width="97%" height="45" change="buttonChange(event)"
+				 chromeColor="#111111" color="#FFFFFF" fontSize="18" fontWeight="normal"
+				 horizontalCenter="0" selectedIndex="3">  
+		<s:ArrayCollection>
+			<fx:String>Live Views</fx:String> 
+			<fx:String>Visualizations</fx:String> 
+			<fx:String>Videos</fx:String> 
+			<fx:String>More</fx:String>
+		</s:ArrayCollection>
+	</s:ButtonBar>
+</s:View>

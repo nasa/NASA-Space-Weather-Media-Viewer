@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="d50f5004-2f0c-4a42-badd-eac789c001ea" projectUUID="d50f5004-2f0c-4a42-badd-eac789c001ea" pureCatalystProject="false" sdkVersion="4.5.1" uuid="e3cba5d7-dee5-4376-9809-27721a9be264" version="15">
+  <projects/>
+  <src/>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="e3cba5d7-dee5-4376-9809-27721a9be264"/>
+    <linked location="C:/Users/All Mankind/Adobe Flash Builder 4.5/NasaSpaceViewer/libs" path="/libs" position="1" uuid="8247afd6-d96c-403d-b4a0-da0fce089e13"/>
+    <linked location="${DCD_LIB_LOCATION}" path="${DCD_LIB_LOCATION}" position="2" uuid="8247afd6-d96c-403d-b4a0-da0fce089e13"/>
+    <linked location="${DCD_LOCALE_LOCATION}" path="${DCD_LOCALE_LOCATION}" position="3" uuid="8247afd6-d96c-403d-b4a0-da0fce089e13"/>
+    <linked location="${DCD_FIBER_LOCATION}/fiber.swc" path="${DCD_FIBER_LOCATION}/fiber.swc" position="4" uuid="8247afd6-d96c-403d-b4a0-da0fce089e13"/>
+    <linked location="${DCD_FIBER_LOCALE_LOCATION}/fiber_rb.swc" path="${DCD_FIBER_LOCALE_LOCATION}/fiber_rb.swc" position="5" uuid="8247afd6-d96c-403d-b4a0-da0fce089e13"/>
+    <linked location="${DCD_FIBER_LOCATION}/playerfds.swc" path="${DCD_FIBER_LOCATION}/playerfds.swc" position="6" uuid="8247afd6-d96c-403d-b4a0-da0fce089e13"/>
+  </swc>
+  <misc/>
+  <theme/>
+  <mxmlFormattingPrefs groupAttributesByState="true" maxLineWidth="100" mxmlAlignAttributes="true" mxmlAttributeOrder="id,userLabel,includeIn,excludeFrom,visible,x,y,z,left,right,top,bottom,width,height,minWidth,minHeight,maxWidth,maxHeight,label" mxmlKeepAttributeValuesOrganized="true"/>
+</fxpProperties>

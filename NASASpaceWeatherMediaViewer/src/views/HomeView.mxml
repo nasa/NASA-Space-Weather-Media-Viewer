@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:ns1="*"
+		actionBarVisible="true" addedToStage="view1_addedToStageHandler(event)"
+		backgroundColor="#000000"
+		contentCreationComplete="view1_contentCreationCompleteHandler(event)"
+		creationComplete="view1_creationCompleteHandler(event)" fontSize="18"
+		resize="view1_resizeHandler(event)" viewDeactivate="view1_viewDeactivateHandler(event)">
+	<fx:Script>
+		
+		<![CDATA[
+			import com.greensock.TweenNano;
+			import flash.events.TimerEvent;
+			import flash.utils.Timer;
+			import id.core.Splash;
+			import mx.events.FlexEvent;
+			import mx.events.ResizeEvent;
+			import spark.events.ViewNavigatorEvent;
+			import spark.transitions.CrossFadeViewTransition;
+			
+			private var timer:Timer;
+			private var timeAmount:Number=2000;
+			private var versionText:String = "version 1.0.3.0A"
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+			}
+			
+			protected function timerEvent(event:TimerEvent):void
+			{				
+				timer.stop();
+				timer.removeEventListener(TimerEvent.TIMER, timerEvent);
+				timer=null;
+				
+				var cubeFlip:CrossFadeViewTransition = new CrossFadeViewTransition();
+				cubeFlip.duration = 1000;
+				navigator.replaceView(LiveViewsView, data, null, cubeFlip);
+			}
+			
+			protected function view1_viewDeactivateHandler(event:ViewNavigatorEvent):void
+			{
+			}
+			
+			protected function view1_addedToStageHandler(event:Event):void
+			{				
+				var percentage:Number;
+				
+				if(stage.stageWidth<stage.stageHeight)
+				{
+					percentage = (stage.stageWidth-30)/splashText.width;
+				}
+				else
+				{
+					percentage = (stage.stageHeight-30)/splashText.width;
+				}
+				
+				splashText.width*=percentage;
+				splashText.height*=percentage;
+				
+				nasaLogo.width*=percentage;
+				nasaLogo.height*=percentage;
+				
+				findOrientation();
+				
+				TweenNano.to(background, 1, {alpha:1});
+				TweenNano.to(nasaLogo, 1, {alpha:1, delay:1});
+				TweenNano.to(splashText, 1, {alpha:1, delay:2});
+				TweenNano.to(version, 1, {alpha:1, delay:3, onComplete:addTimer});
+			}
+			
+			private function addTimer():void
+			{
+				timer = new Timer(timeAmount);
+				timer.addEventListener(TimerEvent.TIMER, timerEvent);
+				
+				
+				timer.start();
+			}
+			
+			private var isPortrait:Boolean;
+			protected function view1_resizeHandler(event:ResizeEvent):void
+			{
+				findOrientation();
+			}
+			
+			private function findOrientation():void
+			{
+				if(!stage) return;
+				
+				background.width=stage.stageWidth;
+				background.height=stage.stageHeight;
+				
+				if(stage.stageWidth<stage.stageHeight)
+				{
+					nasaLogo.top=30;
+					nasaLogo.bottom=null;
+					splashText.verticalCenter=-30;
+					splashText.top=null;
+					version.verticalCenter=175;
+				}
+				else
+				{
+					nasaLogo.top=null;
+					nasaLogo.bottom=30;
+					splashText.verticalCenter=null;
+					splashText.top=30;
+					version.verticalCenter=40;
+				}
+			}
+			
+			protected function view1_contentCreationCompleteHandler(event:FlexEvent):void
+			{
+				actionBarVisible=false;
+				version.text=versionText;
+			}
+			
+		]]>
+	
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Group id="splash">
+		<ns1:backgroundSplash id="background" x="0" y="0" alpha="0"/>
+		<ns1:spaceTextSplash id="splashText" alpha="0" horizontalCenter="0" verticalCenter="-30"/>
+		<ns1:nasaSplashLogo id="nasaLogo" top="30" horizontalCenter="0" alpha="0"/>
+	</s:Group>
+	
+	<s:Label id="version" width="317" color="#999999" horizontalCenter="0" textAlign="center" alpha="0"/>
+	
+</s:View>

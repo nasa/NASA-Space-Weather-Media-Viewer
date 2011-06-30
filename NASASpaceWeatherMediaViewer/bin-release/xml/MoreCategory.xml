@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<!--  <category>				
+		<name>My Saved Content</name>
+		<thumbnail>assets/nasaLogo.png"</thumbnail>
+		<title>Space Weather Mobile Media Viewer</title>
+		<description>></description>
+	</category>-->
+		
+	<category>
+		<name>NASA Missions</name>
+		<thumbnail>assets/nasaLogo.png"</thumbnail>
+		<title>Space Weather Mobile Media Viewer</title>
+		<description>></description>
+	</category>			
+	
+	<category>				
+		<name>About</name>
+		<thumbnail>assets/nasaLogo.png"</thumbnail>
+		<title>Space Weather Mobile Media Viewer</title>
+		<description><![CDATA[<p><font size="24"><img src="assets/nasa_logo.png" width="172" height="148" align="left"></img>The Space Weather Media Viewer is an application built to support Education and Public Outreach activities of NASA. Many of the images that appear in this viewer are "near-real-time" and come from a variety of NASA Missions.<br><br><b>Produced by</b>: NASA</a><br><br><b>Video Interviews</b>: Troy Cline, Elaine Lewis, and Jim Spadaccini.<br><br><b>Participating Experts</b>: Nigel Angold, Dr. Nicola Fox, Dr. Jim Green, Ed Massey, Dr. Sten Odenwald, Dr. Art Poland, Dr. Edward Smith, and Dr. Ed Stone.<br><br><b>Producers</b>: Elaine Lewis and Troy Cline.<br><br><b>Contributers</b>: Andrea Angrum, Beth Barbier, Lndsay Bartolone, Steele Hill, Theresa Kucera, Kelly Korrect, Sten Odenwald and Laura Peticolas.<br><br><b>Designed and Developed by Ideum</p>]]></description>
+	</category>
+</xml>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<media thumbnail="assets/images/thumbs/04_polarvisible_thumb.png" medium="assets/images/Polar-Visible-Aurora.png" type="video" source="http://sunearthday.gsfc.nasa.gov/spaceweather/mobile/nasa/Visualizations/04_polarvisible.mp4" title="Polar Visible Aurora" headline="Polar Visible Aurora">
+		<description><![CDATA[<p><font size="24"><img src="assets/images/Polar-Visible-Aurora.png" width="150" height="150" align="right"></img>The aurora, also known as the Northern Lights, occurs when electrons in the Earth's magnetosphere collide with oxygen and nitrogen atoms in the Earth's upper atmosphere.  This animation shows the visible aurora in the Northern Hemisphere on July 16, 2000. The data comes from the Visible Imaging System (VIS) on board the NASA Polar spacecraft.  Visualization courtesy of NASA's Goddard Space Flight Center Scientific Visualization Studio.]]></description>
+	</media>
+					
+	<media thumbnail="assets/images/thumbs/05_aurcap_thumb.png" medium="assets/images/Aurora-Curtain.png" type="video" source="http://sunearthday.gsfc.nasa.gov/spaceweather/mobile/nasa/Visualizations/05_aurcap.mp4" title="Aurora Curtain" headline="Aurora Curtain">
+		<description><![CDATA[<p><font size="24"><img src="assets/images/Aurora-Curtain.png" width="150" height="150" align="right"></img>An aurora is a beautiful pattern of light.  The lights appear to be a billowing curtain blowing in the wind. No two auroras are alike. When you see an aurora, you know that we are having a Sun-Earth Connection event.  We know that all the energy from the Sun is being harnessed in our own atmosphere, and is causing great amounts of energy to flow around our near space atmosphere.  This aurora was caused by a CME.  Visualization courtesy of Solarmax: Museum of Science and Industry.]]></description>
+	</media>			
+</xml>

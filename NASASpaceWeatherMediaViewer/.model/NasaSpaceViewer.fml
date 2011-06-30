@@ -1,0 +1,625 @@
+
+<model xmlns="http://ns.adobe.com/Fiber/1.0">
+  <annotation name="ActionScriptGeneration">
+    <item name="FullyQualifyReferences">true</item>
+  </annotation>
+  <service name="MissionsVideo">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.missionsvideo</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/MissionsVideo.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\MissionsVideo.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\MissionsVideo.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="HelioshpereVideo">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.helioshperevideo</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/HelioshpereVideo.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\HelioshpereVideo.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\HelioshpereVideo.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="AboutView">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.aboutview</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/AboutView.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\AboutView.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\AboutView.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="AuroraVideo">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.auroravideo</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/AuroraVideo.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\AuroraVideo.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\AuroraVideo.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="Auroras">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.auroras</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/Auroras.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\Auroras.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\Auroras.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="SunVisual">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.sunvisual</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/SunVisual.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SunVisual.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SunVisual.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="SunView">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.sunview</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/SunView.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SunView.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SunView.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="SolarWindVideo">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.solarwindvideo</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/SolarWindVideo.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SolarWindVideo.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SolarWindVideo.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="AuroraVisual">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.auroravisual</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/AuroraVisual.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\AuroraVisual.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\AuroraVisual.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="Visualizations">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.visualizations</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Category[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/Visualizations.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\Visualizations.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\Visualizations.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::category</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="MoreCategory">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.morecategory</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Category[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/MoreCategory.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\MoreCategory.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\MoreCategory.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::category</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="MagnetoshpereVideo">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.magnetoshperevideo</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/MagnetoshpereVideo.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\MagnetoshpereVideo.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\MagnetoshpereVideo.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="SunVideo">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.sunvideo</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/SunVideo.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SunVideo.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SunVideo.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="LiveViewsCategory">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.liveviewscategory</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Category[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/liveViewsCategory.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\liveViewsCategory.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\liveViewsCategory.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::category</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="VideoView">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.videoview</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Category[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/VideoView.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\VideoView.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\VideoView.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::category</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <entity name="Category">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Category</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">VideoView,MoreCategory,LiveViewsCategory,Visualizations</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="name" type="string"/>
+    <property name="thumbnail" type="string"/>
+    <property name="title" type="string" required="true"/>
+    <property name="description" type="string" required="true"/>
+  </entity>
+  <service name="SolarWind">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.solarwind</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/SolarWind.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SolarWind.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\SolarWind.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <service name="NasaMissions">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.nasamissions</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">XML</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="getData" return-type="Media[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">xml/NasaMissions.xml</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="displayUrl">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\NasaMissions.xml</item>
+        <item name="completeURL">C:\Users\All Mankind\Adobe Flash Builder 4.5\NasaSpaceViewer\src\xml\NasaMissions.xml</item>
+        <item name="isUrl">false</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::media</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <entity name="Media">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Media</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">AboutView,Auroras,SolarWind,SunVisual,AuroraVisual,SunView,SunVideo,SolarWindVideo,MissionsVideo,MagnetoshpereVideo,HelioshpereVideo,AuroraVideo,NasaMissions</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="showEarthScale" type="string"/>
+    <property name="widget" type="string"/>
+    <property name="medium" type="string"/>
+    <property name="source" type="string"/>
+    <property name="thumbnail" type="string"/>
+    <property name="type" type="string"/>
+    <property name="title" type="string"/>
+    <property name="headline" type="string"/>
+    <property name="description" type="string"/>
+  </entity>
+</model>
